@@ -8,3 +8,4 @@
 #### qBittorrent 8080 /qb/
 #### webdav 8093 /webdav/
 #### filebrowser 8081 /filebrowser/
+#### frp ssh 52101
