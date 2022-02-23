@@ -1,6 +1,6 @@
 FROM debian
 RUN apt update
-RUN apt install ssh curl wget npm nginx nano bash tmux qbittorrent-nox htop net-tools zip unzip rclone -y
+RUN apt install ssh curl wget npm nginx nano bash tmux qbittorrent-nox htop net-tools zip unzip rclone aria2 -y
 RUN npm install -g wstunnel
 RUN wget https://raw.githubusercontent.com/lhx11187/huochetou/main/default -O /etc/nginx/sites-available/default
 RUN cd /root && mkdir /root/ttyd && wget -c -O /root/ttyd/ttyd https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.x86_64
