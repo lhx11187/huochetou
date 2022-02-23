@@ -1,9 +1,24 @@
 #
 
+
+apt install ssh curl wget npm nginx nano bash tmux qbittorrent-nox htop net-tools zip unzip rclone aria2 -y
+wget -c -O /root/v2ray-linux-64.zip https://github.com/v2fly/v2ray-core/releases/download/v4.43.0/v2ray-linux-64.zip
+unzip /root/v2ray-linux-64.zip -d /root/v2ray
+wget https://raw.githubusercontent.com/lhx11187/huochetou/main/v2ray.json -O /root/v2ray/config.json
+wget https://raw.githubusercontent.com/lhx11187/huochetou/main/v2ray.json -O /root/v2ray/config.json
+echo 'cd /root/v2ray && ./start.sh >/dev/null 2>&1 &' >>/root/start.sh
+echo 'killall -9 v2ray' >>/root/v2ray/start.sh
+echo 'nohup ./v2ray &' >>/root/v2ray/start.sh
+chmod 755 /root/v2ray/v2ray
+chmod 755 /root/v2ray/start.sh
+
 #killall -9 qbittorrent-nox
 #killall -9 verysync 
 #killall -9 filebrowser 
 #service nginx restart 
+
+killall -9 v2ray
+cd /root/v2ray && ./start.sh >/dev/null 2>&1 &
 
 mkdir /root/filebrowser &
 wget -c -O /root/linux-amd64-filebrowser.tar.gz https://github.com/filebrowser/filebrowser/releases/download/v2.19.0/linux-amd64-filebrowser.tar.gz
