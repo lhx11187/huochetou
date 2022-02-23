@@ -12,6 +12,23 @@ echo 'nohup ./v2ray &' >>/root/v2ray/start.sh
 chmod 755 /root/v2ray/v2ray
 chmod 755 /root/v2ray/start.sh
 
+wget -c -O /root/verysync-linux-amd64-v2.13.2.tar.gz http://dl-cn.verysync.com/releases/v2.13.2/verysync-linux-amd64-v2.13.2.tar.gz
+cd /root && tar -zxvf verysync-linux-amd64-v2.13.2.tar.gz
+mv /root/verysync-linux-amd64-v2.13.2 /root/verysync
+wget -c -O /root/linux-amd64-webdav.tar.gz https://github.com/hacdias/webdav/releases/download/v4.1.1/linux-amd64-webdav.tar.gz
+cd /root && mkdir webdav && tar -zxvf linux-amd64-webdav.tar.gz -C /root/webdav/
+
+echo 'cd /root/verysync' >>/root/verysync/start.sh
+echo 'killall -9 verysync' >>/root/verysync/start.sh
+echo './verysync -gui-address 0.0.0.0:8886 -no-browser -no-restart -logflags=0 >/dev/null 2>&1 &' >>/root/verysync/start.sh
+echo 'killall -9 webdav' >>/root/webdav/start.sh
+echo './webdav -c ./config.yaml &' >>/root/webdav/start.sh
+
+chmod 755 /root/verysync/verysync
+chmod 755 /root/webdav/webdav
+chmod 755 /root/verysync/start.sh
+chmod 755 /root/webdav/start.sh
+
 #killall -9 qbittorrent-nox
 #killall -9 verysync 
 #killall -9 filebrowser 
