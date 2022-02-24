@@ -60,4 +60,9 @@ chmod 777 ~/.aria2/aria2.session
 wget -c -O /root/.aria2/aria2.conf https://raw.githubusercontent.com/lhx11187/huochetou/main/aria2.conf
 aria2c --conf-path=/root/.aria2/aria2.conf -D
 
+wget -c -O /root/AriaNg-1.2.3.zip https://github.com/mayswind/AriaNg/releases/download/1.2.3/AriaNg-1.2.3.zip
+unzip /root/AriaNg-1.2.3.zip -d /var/www/html/AriaNg
+
+rclone rcd --rc-web-gui --rc-user lhx11187 --rc-pass 7702843 >/dev/null 2>&1 &
+
 
