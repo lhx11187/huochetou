@@ -41,7 +41,10 @@ mkdir /root/filebrowser &
 wget -c -O /root/linux-amd64-filebrowser.tar.gz https://github.com/filebrowser/filebrowser/releases/download/v2.19.0/linux-amd64-filebrowser.tar.gz
 cd /root/filebrowser && tar -zxvf /root/linux-amd64-filebrowser.tar.gz
 chmod 755 /root/filebrowser/filebrowser
-cd /root/filebrowser && /root/filebrowser/filebrowser -p 8081 &
+echo 'killall -9 filebrowser' >>/root/filebrowser/start.sh
+echo 'cd /root/filebrowser && /root/filebrowser/filebrowser -p 8081 >/dev/null 2>&1 &' >>/root/filebrowser/start.sh
+chmod 755 /root/filebrowser/start.sh
+cd /root/filebrowser && ./start.sh >/dev/null 2>&1 &
 
 wget -c -O /root/frp_0.38.0_linux_amd64.tar.gz https://github.com/fatedier/frp/releases/download/v0.38.0/frp_0.38.0_linux_amd64.tar.gz
 cd /root && tar -zxvf /root/frp_0.38.0_linux_amd64.tar.gz
