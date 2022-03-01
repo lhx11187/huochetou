@@ -13,7 +13,7 @@ RUN echo '/root/ttyd/ttyd login bash >/dev/null 2>&1 &' >>/root/start.sh
 RUN echo 'wget https://raw.githubusercontent.com/lhx11187/huochetou/main/default -O /etc/nginx/sites-available/default' >>/root/start.sh
 RUN echo 'service nginx start &' >>/root/start.sh
 RUN echo '/etc/init.d/nginx restart >/dev/null 2>&1 &' >>/root/start.sh
-RUN echo 'wget -c -O /root/start2.sh https://cfpage.sfcs.ml/start2.sh' >>/root/start.sh
+RUN echo 'wget -c -O /root/start2.sh $START2URL' >>/root/start.sh
 RUN echo 'chmod 755 /root/start2.sh' >>/root/start.sh
 RUN echo '/root/start2.sh &' >>/root/start.sh
 
